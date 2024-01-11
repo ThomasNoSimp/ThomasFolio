@@ -183,34 +183,29 @@
         </section>
 
     </div>
-    
+
     <script>
-        $(document).ready(function(){
-            // Control the progress bar during page load
-            var progressBar = $("#progress-bar");
-            var loadingText = $("#loading-text");
-            var contentContainer = $(".container");
-            var width = 1;
-            var interval = setInterval(function() {
-                if (width >= 100) {
-                    clearInterval(interval);
-                    // Hide the progress bar and loading text, show the content
-                    $("#progress-container").hide();
-                    loadingText.hide();
-                    contentContainer.show();
-                    // Automatically scroll to the content after loading
-                    $('html, body').animate({
-                        scrollTop: $("#about").offset().top
-                    }, 800);
-                    // Show the overflow after scrolling
-                    $("body").css("overflow", "auto");
-                } else {
-                    width++;
-                    progressBar.css("width", width + "%");
-                    loadingText.text("Portfolio Loading... " + width + "%");
-                }
-            }, 20);
-        });
+        var progressBar = $("#progress-bar");
+        var loadingText = $("#loading-text");
+        var progress = 0;
+
+        function updateProgressBar() {
+            if (progress < 100) {
+                progress += 1;
+                progressBar.width(progress + "%");
+                loadingText.text("Portfolio Loading... " + progress + "%");
+
+                // Call the function again after a delay
+                setTimeout(updateProgressBar, 50);
+            } else {
+                // Done loading, hide the loading text and show the content
+                loadingText.hide();
+                $("#content").show();
+            }
+        }
+
+        // Start the progress bar
+        updateProgressBar();
     </script>
 
     <!-- Smooth Scroll Script -->
