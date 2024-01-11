@@ -130,6 +130,29 @@
         </div>
     </nav>
 
+    <script>
+        var progressBar = $("#progress-bar");
+        var loadingText = $("#loading-text");
+        var progress = 0;
+
+        function updateProgressBar() {
+            if (progress < 100) {
+                progress += 1;
+                progressBar.width(progress + "%");
+                loadingText.text("Portfolio Loading... " + progress + "%");
+
+                // Call the function again after a delay
+                setTimeout(updateProgressBar, 50);
+            } else {
+                // Done loading, hide the loading text and show the content
+                loadingText.hide();
+                $("#content").show();
+            }
+        }
+
+        // Start the progress bar
+        updateProgressBar();
+    </script>
     <!-- Page Content -->
     <div class="container" style="display: none;" id="content"> <!-- Hide the content initially -->
         <!-- About Section -->
@@ -184,29 +207,6 @@
 
     </div>
 
-    <script>
-        var progressBar = $("#progress-bar");
-        var loadingText = $("#loading-text");
-        var progress = 0;
-
-        function updateProgressBar() {
-            if (progress < 100) {
-                progress += 1;
-                progressBar.width(progress + "%");
-                loadingText.text("Portfolio Loading... " + progress + "%");
-
-                // Call the function again after a delay
-                setTimeout(updateProgressBar, 50);
-            } else {
-                // Done loading, hide the loading text and show the content
-                loadingText.hide();
-                $("#content").show();
-            }
-        }
-
-        // Start the progress bar
-        updateProgressBar();
-    </script>
 
     <!-- Smooth Scroll Script -->
     <script>
