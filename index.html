@@ -12,8 +12,9 @@
             padding-top: 56px;
             font-family: 'Arial', sans-serif;
             color: #333;
+            background-color: #f8f9fa; /* Add a light background color */
         }
-    
+
         @media (min-width: 992px) {
             body {
                 padding-top: 76px;
@@ -22,15 +23,18 @@
 
         .navbar {
             transition: background-color 0.3s ease-in-out;
+            background: linear-gradient(to bottom, #343a40 0%, #343a40 50%, #222 100%); /* Add a gradient effect */
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
         }
 
         .navbar:hover {
-            background-color: #222;
+            background: linear-gradient(to bottom, #222 0%, #222 50%, #343a40 100%); /* Adjust gradient on hover */
         }
 
         .navbar-brand {
             font-weight: bold;
             font-size: 1.5rem;
+            color: #ffc107; /* Add a glossy color */
         }
 
         .nav-link {
@@ -45,6 +49,25 @@
         .section-heading {
             font-size: 2.5rem;
             color: #007bff;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-heading:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, #ffc107, transparent); /* Add a glossy gradient underline */
+            bottom: 0;
+            left: 0;
+        }
+
+        .section-content {
+            background: #fff; /* Add a light background color to sections */
+            padding: 30px;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Add a subtle box shadow to sections */
+            border-radius: 8px; /* Add rounded corners to sections */
             margin-bottom: 30px;
         }
 
@@ -81,18 +104,18 @@
     <div class="container">
 
         <!-- About Section -->
-        <section id="about">
+        <section id="about" class="section-content">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading text-uppercase">About Me</h2>
-                    <p class="lead">Welcome to my portfolio. I am passionate about...</p>
+                    <p class="lead">Welcome to my professional portfolio. I am passionate about...</p>
                     <!-- Add more content as needed -->
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects">
+        <section id="projects" class="section-content">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading text-uppercase">Projects</h2>
@@ -102,7 +125,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact">
+        <section id="contact" class="section-content">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading text-uppercase">Contact Me</h2>
